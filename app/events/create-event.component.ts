@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { Router } from '@angular/router'
 
 @Component({
     template: `
@@ -9,10 +10,17 @@ import { Component } from '@angular/core'
             <br />
             <br />
             <button type="submit" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-primary">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="cancel()">Cancel</button>
         </div>
     `
 })
 export class CreateEventComponent {
+    isDirty:boolean = true
     
+    constructor(private router:Router) {
+
+    }
+    cancel() {
+        this.router.navigate(['/events'])
+    }
 }
