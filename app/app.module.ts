@@ -1,23 +1,31 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule} from '@angular/platform-browser'
 import { RouterModule} from '@angular/router'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+
+import { CreateEventComponent, 
+        EventDetailsComponent, 
+        EventRouteActivator, 
+        EventThumbnailComponent, 
+        EventListResolver ,
+        EventsListComponent,
+        CreateSessionComponent
+} from './events/index'
 
 import { EventsAppComponent } from './events-app-component'
-import { EventsListComponent } from './events/events-list.component'
-import { EventThumbnailComponent } from './events/event-thumbnail-component'
 import { NavBarComponent } from './nav/navbar.component'
 import { EventService } from './events/shared/event.service'
 import { ToastrService } from './common/toastr.service'
-import { EventDetailsComponent} from './events/event-details/event-details.component'
 import { appRoutes} from './routes'
-import { CreateEventComponent } from './events/create-event.component'
 import { Error404Component } from './errors/404.component'
-import { EventRouteActivator } from './events/event-details/event-route-activator.service'
-import { EventListResolver } from './events/events-list-resolver.service'
+import { AuthService } from './user/auth.service'
+
 
 @NgModule({
     imports: [
         BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot(appRoutes)
     ],
     declarations: [
@@ -27,7 +35,8 @@ import { EventListResolver } from './events/events-list-resolver.service'
         NavBarComponent,
         EventDetailsComponent,
         CreateEventComponent,
-        Error404Component
+        Error404Component,
+        CreateSessionComponent
     ],
     providers: [
         EventService,
@@ -37,7 +46,8 @@ import { EventListResolver } from './events/events-list-resolver.service'
             provide: 'canDeactivateCreateEvent', 
             useValue: checkDirtyState 
         },
-        EventListResolver
+        EventListResolver,
+        AuthService
     ],
     bootstrap: [EventsAppComponent]
 })
