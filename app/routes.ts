@@ -1,4 +1,5 @@
 import {Routes} from '@angular/router'
+
 import {
     EventsListComponent,
     EventDetailsComponent,
@@ -7,6 +8,7 @@ import {
     EventListResolver,
     CreateSessionComponent
 } from './events/index'
+
 import { Error404Component } from './errors/404.component'
 
 export const appRoutes:Routes = [

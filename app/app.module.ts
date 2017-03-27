@@ -3,23 +3,24 @@ import { BrowserModule} from '@angular/platform-browser'
 import { RouterModule} from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
-import { CreateEventComponent, 
-        EventDetailsComponent, 
-        EventRouteActivator, 
-        EventThumbnailComponent, 
-        EventListResolver ,
-        EventsListComponent,
-        CreateSessionComponent
+import {
+    EventsListComponent,
+    EventThumbnailComponent,
+    EventService,
+    EventDetailsComponent,
+    CreateEventComponent,
+    EventRouteActivator,
+    EventListResolver,
+    CreateSessionComponent
 } from './events/index'
 
 import { EventsAppComponent } from './events-app-component'
 import { NavBarComponent } from './nav/navbar.component'
-import { EventService } from './events/shared/event.service'
 import { ToastrService } from './common/toastr.service'
 import { appRoutes} from './routes'
 import { Error404Component } from './errors/404.component'
-import { AuthService } from './user/auth.service'
 
+import { AuthService } from './user/auth.service'
 
 @NgModule({
     imports: [
