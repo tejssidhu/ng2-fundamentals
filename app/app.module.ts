@@ -10,8 +10,8 @@ import {
     EventService,
     EventDetailsComponent,
     CreateEventComponent,
-    EventRouteActivator,
     EventListResolver,
+    EventResolver,
     CreateSessionComponent,
     SessionListCompoent,
     DurationPipe,
@@ -75,7 +75,7 @@ declare let jQuery: Object;
             useValue: jQuery
         },
         VoterService,
-        EventRouteActivator,
+        EventResolver,
         {
             provide: 'canDeactivateCreateEvent', 
             useValue: checkDirtyState 
